@@ -1,7 +1,8 @@
-## Glavni naslov​
+## Upustvo za instalaciju i podesavanje​
 >Instalacija wiregurad-a
+```
 sudo apt-get install wireguard
-
+```
 Napraviti config fajlove za wireguard dual VPN (dva fajla na dva rutera)
 sudo nano /etc/wireguard/wg0.conf
 sudo nano /etc/wireguard/wg1.conf
