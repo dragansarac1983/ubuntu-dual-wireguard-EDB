@@ -1,0 +1,19 @@
+# /etc/systemd/system/wg-failover.service
+
+[Unit]
+Description=WireGuard WG0 WG1 failover monitor
+After=network.target wg-quick@wg0.service wg-quick@wg1.service
+Requires=wg-quick@wg0.service wg-quick@wg1.service
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/local/bin/wg-failover.sh
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
