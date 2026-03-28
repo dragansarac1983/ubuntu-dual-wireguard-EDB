@@ -1,4 +1,5 @@
-​>Instalacija wiregurad-a
+## Glavni naslov​
+>Instalacija wiregurad-a
 sudo apt-get install wireguard
 
 Napraviti config fajlove za wireguard dual VPN (dva fajla na dva rutera)
