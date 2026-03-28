@@ -38,6 +38,7 @@ sudo wg-quick up wg1
 ```
 
 Pregled ruta kada se tuneli konektuju
+```console
 ╰─○ ip route
 default via 172.16.0.81 dev ens34 proto static
 172.16.0.80/29 dev ens34 proto kernel scope link src 172.16.0.84
@@ -45,6 +46,7 @@ default via 172.16.0.81 dev ens34 proto static
 172.16.20.0/24 dev wg1 scope link
 172.16.250.0/24 dev wg0 scope link metric 100
 172.16.250.0/24 dev wg1 scope link metric 200
+```
 
 Kada je sve uredu potrebno je ove VPN ove iskonfigurisati  da se podizu automacki prilikom podizanja OS-a
 sudo systemctl enable wg-quick@wg0.service
