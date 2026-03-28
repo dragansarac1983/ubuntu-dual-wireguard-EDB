@@ -11,7 +11,7 @@ sudo nano /etc/wireguard/wg0.conf
 sudo nano /etc/wireguard/wg1.conf
 ```
 U konfiguracionim fajlovima su komentari na svakoj liniji koda, ispod je primjer sa pojasnjenjem
-
+```python
 [Interface]
 ListenPort = 39040
 PrivateKey = kreirati na AUTO na Peers na Mikrotiku
@@ -23,8 +23,7 @@ PublicKey = Sa Mikrotik interfejsa
 AllowedIPs =Mreze koje treba da dohvati sa Mikrotika
 Endpoint = IP Mikrotika
 PersistentKeepalive = 10
-
-
+```
 Iskljucicemo automacko dodavanje ruta u konfigu
 Table = off
 
