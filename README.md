@@ -49,7 +49,9 @@ default via 172.16.0.81 dev ens34 proto static
 ```
 
 Kada je sve uredu potrebno je ove VPN ove iskonfigurisati  da se podizu automacki prilikom podizanja OS-a
+```bash
 sudo systemctl enable wg-quick@wg0.service
+```
 sudo systemctl enable wg-quick@wg1.service
 sudo systemctl daemon-reload
 
