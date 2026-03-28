@@ -52,21 +52,29 @@ Kada je sve uredu potrebno je ove VPN ove iskonfigurisati  da se podizu automack
 ```bash
 sudo systemctl enable wg-quick@wg0.service
 ```
+```bash
 sudo systemctl enable wg-quick@wg1.service
+```
+```bash
 sudo systemctl daemon-reload
+```
 
 Kada restartujemo OS VPN ovi treba da su aktivni, mozemo testirati konektivnost
 
 Sledeci problem kojeg rijesavamo je dostupnost mreze koja ima razlicite metrike:
-
+```console
 172.16.250.0/24 dev wg0 scope link metric 100
 172.16.250.0/24 dev wg1 scope link metric 200
+```
 
 Naime problem je kada wg0 tunel ispadne, da OS drzi tunel UP i saobracaj ide primarnom putanjom, a ne backup koja ce raditi prilikom ispada. Prilikom ispada potrebno je ugasiti tunel wg0 "wg-quick down wg0" i za to cemo koristiti wg-failover.sh koja prati interface na ruteru kroz wireguard tunel wg0 i to 172.16.10.1, znaci ako da putanja ispadne (prati se 5 ispada) i pokrece svakih 120 sekundi tj sleep vrijednost u skripti. Kada se desi ta promjena ova skripta ce pokrenuti i send-warn-mail.py skriptu koja ce poslati mail obavjestenje.
 Obadvije skripte se nalaze na lokaciji /usr/local/bin i potrebno ih je kreirati i datim prava za izvrsavanje:
-
+```bash
 nano /usr/local/bin/wg-failover.sh
+```
+```bash
 sudo chmod +x /usr/local/bin/wg-failover.sh
+```
 
 nano /usr/local/bin/send-warn-mail.py
 sudo chmod +x /usr/local/bin/send-warn-mail.py
