@@ -38,7 +38,7 @@ sudo wg-quick up wg1
 ```
 
 Pregled ruta kada se tuneli konektuju
-```sh
+```console
 ╰─○ ip route
 default via 172.16.0.81 dev ens34 proto static
 172.16.0.80/29 dev ens34 proto kernel scope link src 172.16.0.84
