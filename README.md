@@ -1,13 +1,13 @@
 ## Upustvo za instalaciju i podesavanje​
 >Instalacija wiregurad-a
-```
+```bash
 sudo apt-get install wireguard
 ```
 Napraviti config fajlove za wireguard dual VPN (dva fajla na dva rutera)
-```
+```bash
 sudo nano /etc/wireguard/wg0.conf
 ```
-```
+```bash
 sudo nano /etc/wireguard/wg1.conf
 ```
 U konfiguracionim fajlovima su komentari na svakoj liniji koda, ispod je primjer sa pojasnjenjem
@@ -30,10 +30,10 @@ Table = off
 Definisamo sa PostUP i PostDown koje rute oglasavamo posto cemo mrezu 172.16.250.0/24 oglasavati kroz 2 tunela sa razlicitim metrikama
 
 Kada ubacimo fajlove potrebno je podici tunele
-```
+```bash
 sudo wg-quick up wg0
 ```
-```
+```bash
 sudo wg-quick up wg1
 ```
 
@@ -49,7 +49,7 @@ default via 172.16.0.81 dev ens34 proto static
 ```
 
 Kada je sve uredu potrebno je ove VPN ove iskonfigurisati  da se podizu automacki prilikom podizanja OS-a
-```
+```bash
 sudo systemctl enable wg-quick@wg0.service
 ```
 sudo systemctl enable wg-quick@wg1.service
