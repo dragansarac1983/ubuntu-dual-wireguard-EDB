@@ -30,9 +30,12 @@ Table = off
 Definisamo sa PostUP i PostDown koje rute oglasavamo posto cemo mrezu 172.16.250.0/24 oglasavati kroz 2 tunela sa razlicitim metrikama
 
 Kada ubacimo fajlove potrebno je podici tunele
-
+```
 sudo wg-quick up wg0
+```
+```
 sudo wg-quick up wg1
+```
 
 Pregled ruta kada se tuneli konektuju
 ╰─○ ip route
