@@ -6,22 +6,22 @@ from email.mime.text import MIMEText
 import sys
 
 # <- OVDE PROMENI NA SVOJ APP PASSWORD -> ********************************
-APP_PASS = "xxxx hdqu qrjt xxxx"  # Ovde stavi svoj Google App Password
+APP_PASS = "ifbd hdqu qrjt xxxx"  # Ovde stavi svoj Google App Password
 MAIL_FROM = "mm7767081@gmail.com"
-MAIL_TO   = "dragansar@gmail.com"
+MAIL_TO   = ["dragansar@gmail.com", "admin@termaghotel.com"]
 # <- OVDE KRAJ -> ********************************************************
 
 def send_mail(subject, body):
     msg = MIMEText(body)
     msg["From"]    = MAIL_FROM
-    msg["To"]      = MAIL_TO
+    msg["To"]      = ", ".join(MAIL_TO)
     msg["Subject"] = subject
 
     try:
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.starttls()
         server.login(MAIL_FROM, APP_PASS)
-        server.sendmail(MAIL_FROM, [MAIL_TO], msg.as_string())
+        server.sendmail(MAIL_FROM, MAIL_TO, msg.as_string())
         server.quit()
         print("Mail poslat.")
     except Exception as e:
